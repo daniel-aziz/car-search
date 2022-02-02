@@ -12,7 +12,7 @@ html , body > * {
   margin: 0;
   display: grid;
   grid-template-columns: 0.7fr 1.6fr 0.7fr;
-  grid-template-rows: 0.5fr 2.2fr 0.3fr;
+  grid-template-rows: 0.3fr 2.2fr 0.3fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -23,13 +23,16 @@ html , body > * {
 }
 
 .header {
+  position: sticky;
+      
+  top: 0px;
    grid-area: header;
    background-color: rgb(232, 249, 255);
    border-bottom: 1px solid grey;
 }
 
 .main { 
-    margin-top: 10%;
+    margin: 10%;
     grid-area: main; 
     text-align: center;
 
@@ -56,4 +59,10 @@ html , body > * {
 
 .key {
   margin-right: 5px;
+}
+
+.icons-wrapper {
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
