@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './components/main';
+import Search from './components/search';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Main />
+    <Search/>
   </React.StrictMode>,
   document.getElementById('root')
 );

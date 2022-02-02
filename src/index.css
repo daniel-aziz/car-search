@@ -7,44 +7,53 @@ html , body > * {
   font-family: 'Exo', sans-serif;
 }
 
-.main {
+.search {  
   height: 100%;
   margin: 0;
-  font-family:'Times New Roman', Times, serif;
-}
-
-.header {
-  background-color: rgb(170, 225, 243);
-  text-align: center;
-}
-
-.main {  display: grid;
+  display: grid;
   grid-template-columns: 0.7fr 1.6fr 0.7fr;
   grid-template-rows: 0.5fr 2.2fr 0.3fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "header header header"
-    ". body ."
+    ". main ."
     "footer footer footer";
+
 }
 
-.header { grid-area: header; }
+.header {
+   grid-area: header;
+   background-color: rgb(232, 249, 255);
+   border-bottom: 1px solid grey;
+}
 
-.footer { grid-area: footer; }
+.main { 
+    margin-top: 10%;
+    grid-area: main; 
+    text-align: center;
 
-.body { 
-  margin-top: 10%;
-  padding-top: 5%;
-  grid-area: body; 
-  text-align: center;
- }
+}
+
+   
+.footer { 
+  grid-area: footer;
+
+}
+
 
 .icons {
-  
   color: black;
 }
 
 .icons:hover {
   color: lightblue;
+}
+
+.title-wrapper {
+  text-align: center;
+}
+
+.key {
+  margin-right: 5px;
 }
