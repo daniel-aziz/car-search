@@ -25,16 +25,22 @@ function Search(): JSX.Element {
                         setCarInfo(car)
                         setGotInfo(true)
                         notyf.success("Car Found!")
-                        console.log(car)
                     }
-                    else notyf.error("Car was not found")
+                    else {
+                        setGotInfo(false)
+                        notyf.error("Car was not found")
+                    }
                 })
                 .catch((error) => {
                     notyf.error("Car was not found")
                     setCarInfo(new Car())
+                    setGotInfo(false)
                 })
         }
-        else notyf.error("Invail Number")
+        else {
+            notyf.error("Invaild License Number") 
+            setGotInfo(false)
+        }
     }
 
     function changeNumber(args: SyntheticEvent) {
@@ -47,7 +53,7 @@ function Search(): JSX.Element {
             {/* ------ Header ------ */}
             <div className="header">
                 <div className="title-wrapper">
-                    <h2>Car Search</h2>
+                    <h2 className="main-title">Car Search</h2>
                 </div>
 
             </div>
@@ -56,12 +62,11 @@ function Search(): JSX.Element {
             <div className="main">
 
                 <div className="input-wrapper">
-                    <TextField onChange={changeNumber} id="outlined-basic" label="License" variant="outlined" />
-
-                    <br />
-                    <Button variant="contained" size="large" onClick={getCarInfo}>Search</Button>
+                    <TextField onChange={changeNumber} className="inputNumber" id="outlined-basic" label="License Number" variant="outlined" />
+                    <br /><br />
+                    <Button className="inputButton" variant="contained" size="large" onClick={getCarInfo}>Search</Button>
                 </div>
-                <br />
+                <br /><br />
                 <div className="info-wrapper">
                     <span className="key">Ownership Type:</span> <span className="value"> {gotInfo && carInfo.baalut} </span>
                     <br />
@@ -107,9 +112,9 @@ function Search(): JSX.Element {
                     <br />
                     <span className="key">Color:</span> <span className="value"> {gotInfo && carInfo.tzeva_rechev} </span>
                     <br />
-                    <span className="key">Rear Tire:</span> <span className="value"> {gotInfo && carInfo.zmig_ahori} </span>
-                    <br />
                     <span className="key">Front Tire:</span> <span className="value"> {gotInfo && carInfo.zmig_kidmi} </span>
+                    <br />
+                    <span className="key">Rear Tire:</span> <span className="value"> {gotInfo && carInfo.zmig_ahori} </span>
                     <br />
                 </div>
             </div>
